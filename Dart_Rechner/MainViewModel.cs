@@ -1,7 +1,6 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows.Input;
+using System.Windows;
+using System.Xml.Xsl;
 
 namespace Dart_Rechner
 {
@@ -12,13 +11,11 @@ namespace Dart_Rechner
         public string ButtonText
         {
             get { return _buttonText; }
-            set { 
+            set 
+            { 
                 SetProperty<string>(ref _buttonText, value, nameof(ButtonText));
             }
-        }
-        //public ICommand StartCalculatorCommand { get; }
-
-        
+        }        
 
         private DelegateCommand _startCalculatorCommand;
 
@@ -32,13 +29,15 @@ namespace Dart_Rechner
 
         public MainViewModel()
         {
-            //_startCalculator = new DelegateCommand(StartCalculator);
             _buttonText = "Hallo";
         }
 
-        private void StartCalculator(object commandParameter)
+        private void StartCalculator(object viewModel)
         {
-            ButtonText = "Huhu";
+            Settings win = new Settings();
+            win.Show();
+            
+
         }
     }
 }
